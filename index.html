@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bisma Prasetya · Full Stack Developer</title>
+  <meta name="description" content="Portfolio Mochammad Bisma Prasetya, IT Developer di Spindo. Full stack dan keamanan aplikasi.">
+  <meta name="theme-color" content="#0b0c0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&text=%E3%83%93%E3%82%B9%E3%83%9E%E3%83%BB%E3%83%97%E3%83%A9%E3%82%BB%E3%83%86%E3%82%A3%E3%83%A4&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/games.css">
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }</script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body class="is-loading">
+  <canvas id="stage" aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="bars" aria-hidden="true"><i></i><i></i></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <p class="loader-slug">menyiapkan lokasi</p>
+    <div class="loader-track"><i id="loadBar"></i></div>
+    <p class="loader-note">gedung sekolah, sore, hujan</p>
+  </div>
+
+  <div class="credit" id="credit" aria-hidden="true">
+    <p class="credit-small">sebuah portfolio</p>
+    <p class="credit-big">Mochammad Bisma Prasetya</p>
+  </div>
+
+  <div class="namecard" id="namecard" aria-hidden="true">
+    <p class="namecard-jp">ビスマ・プラセティヤ</p>
+    <p class="namecard-name">Bisma</p>
+    <p class="namecard-role">IT Developer, Spindo</p>
+  </div>
+
+  <header class="hud">
+    <a class="hud-mark" href="#pembuka">MBP</a>
+    <span class="hud-rec" aria-hidden="true"><i></i><span id="timecode">00:00:00:00</span></span>
+    <nav class="hud-nav" aria-label="Navigasi">
+      <a href="#profil">Profil</a><a href="#proyek">Proyek</a><a href="#main">Main</a><a href="#kontak">Kontak</a>
+    </nav>
+    <button class="hud-sound" id="soundBtn" type="button" aria-pressed="false">Suara mati</button>
+  </header>
+
+  <p class="subtitle" id="subtitle" aria-live="polite"></p>
+
+  <main>
+    <section class="scene scene--hero" id="pembuka" data-shot="hero">
+      <div class="panel">
+        <p class="slug"><span>00</span>EXT. HALAMAN SEKOLAH, SORE, HUJAN</p>
+        <h1>Mochammad Bisma Prasetya</h1>
+        <p class="lede">Full stack developer yang juga ngurusin keamanan. Sekarang IT Developer di Spindo, bikin aplikasi internal dari database sampai layar.</p>
+        <p class="facts"><span>3 sampai 5 tahun ngoding</span><span>S1 Informatika</span><span class="open">Terbuka kerja remote</span></p>
+        <div class="actions">
+          <a class="btn btn--solid" href="#proyek">Lihat proyek</a>
+          <button class="btn" type="button" id="strikeBtn">Panggil petir</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" id="profil" data-shot="roof">
+      <div class="panel">
+        <p class="slug"><span>01</span>EXT. ATAP GEDUNG A, SORE</p>
+        <h2>Yang nongkrong di atap ini</h2>
+        <p>Aku Bisma. Suka membangun aplikasi dari ujung ke ujung: backend <b>Django</b>, <b>Flask</b>, dan <b>Laravel</b>, frontend web, sampai aplikasi mobile <b>Flutter</b>. Aplikasi yang aku bangun aku scan dengan <b>OWASP ZAP</b>, lalu aku bekali RBAC, audit log, dan login OTP dengan rate limiting.</p>
+        <dl class="sheet">
+          <div><dt>Peran</dt><dd>IT Developer, Spindo</dd></div>
+          <div><dt>Fokus</dt><dd>Full stack dan keamanan aplikasi</dd></div>
+          <div><dt>Pengalaman</dt><dd>3 sampai 5 tahun ngoding</dd></div>
+          <div><dt>Pendidikan</dt><dd>S1 Informatika</dd></div>
+          <div><dt>Sertifikat</dt><dd>BNSP, HTML (Microsoft)</dd></div>
+          <div><dt>Sedang belajar</dt><dd>Docker dan cloud, penetration testing, desain API dan microservices, integrasi AI/LLM</dd></div>
+          <div><dt>Di luar kode</dt><dd>Anime, game, musik</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="scene" id="perjalanan" data-shot="facade" data-side="right">
+      <div class="panel">
+        <p class="slug"><span>02</span>EXT. SELASAR GEDUNG A, SORE</p>
+        <h2>Jejak dari kampus sampai kantor</h2>
+        <ol class="journey" id="journey"></ol>
+      </div>
+    </section>
+
+    <section class="scene" id="alr" data-shot="shed">
+      <div class="panel panel--wide">
+        <p class="slug"><span>03</span>EXT. GUDANG BELAKANG, SORE</p>
+        <h2>Pintu mana yang boleh dibuka?</h2>
+        <p class="lede">ALR (Access Link Register) menyimpan link akses ICT di satu tempat. Pilih role, lalu lihat rolling door mana yang turun. Datanya contoh.</p>
+        <div class="row-actions" role="group" aria-label="Pilih role">
+          <button class="btn" type="button" data-role="admin" aria-pressed="false">Admin</button>
+          <button class="btn" type="button" data-role="mbp" aria-pressed="true">User Entry: MBP</button>
+          <button class="btn" type="button" data-role="rna" aria-pressed="false">User Entry: RNA</button>
+        </div>
+        <p class="note" id="alrNote"></p>
+        <div class="tally"><div><b id="nFull">0</b>CRUD penuh</div><div><b id="nRo">0</b>hanya lihat</div><div><b id="nNone">0</b>tertutup</div></div>
+        <div class="alr" id="alrRows" role="table" aria-label="Data akses contoh"></div>
+      </div>
+    </section>
+
+    <section class="scene" id="proyek" data-shot="gate">
+      <div class="panel panel--wide">
+        <p class="slug"><span>04</span>EXT. GERBANG DEPAN, SORE</p>
+        <h2>Sembilan proyek yang pernah digarap</h2>
+        <div class="row-actions" id="projectFilter" role="group" aria-label="Filter proyek"></div>
+        <ol class="projects" id="projects"></ol>
+      </div>
+    </section>
+
+    <section class="scene" id="keamanan" data-shot="wall" data-side="right">
+      <div class="panel panel--wide">
+        <p class="slug"><span>05</span>EXT. TEMBOK SAMPING, SORE</p>
+        <h2>Empat lapis penjagaan</h2>
+        <div class="split">
+          <ol class="guards">
+            <li><b>Scan dengan OWASP ZAP</b><span>Aplikasi dipindai untuk mencari celah umum sebelum dipakai pengguna.</span></li>
+            <li><b>Tutup celah XSS dan SQL injection</b><span>Input divalidasi dan di-escape, query memakai parameter, bukan string yang disambung.</span></li>
+            <li><b>RBAC dan audit log</b><span>Setiap role hanya bisa melakukan yang diizinkan, dan setiap perubahan tercatat: siapa, kapan, apa.</span></li>
+            <li><b>Login OTP dan rate limiting</b><span>Login dua langkah dengan OTP, ditambah batas percobaan supaya tidak bisa ditebak berulang-ulang.</span></li>
+          </ol>
+          <div class="terminal">
+            <div class="terminal-top"><code>zap-baseline -t https://app.contoh.local</code></div>
+            <div class="meter"><i id="scanMeter"></i></div>
+            <ul class="alerts" id="alerts"><li class="alerts-empty">Belum ada scan.</li></ul>
+            <div class="row-actions">
+              <button class="btn btn--solid" type="button" id="scanBtn">Jalankan scan</button>
+              <button class="btn" type="button" id="fixBtn" disabled>Bersihkan temuan</button>
+            </div>
+            <p class="fine">Simulasi. Target dan temuannya hanya contoh.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene--games" id="main" data-shot="yard">
+      <div class="panel panel--full">
+        <p class="slug"><span>06</span>EXT. LAPANGAN, SORE, HUJAN MAKIN DERAS</p>
+        <h2>Dua ronde melawan bug</h2>
+        <div class="row-actions" role="tablist" aria-label="Pilih permainan">
+          <button class="btn" type="button" role="tab" data-pane="paneHajar" aria-selected="true">Ronde 1: Hajar Bug</button>
+          <button class="btn" type="button" role="tab" data-pane="paneLorong" aria-selected="false">Ronde 2: Lorong Sekolah</button>
+        </div>
+
+        <div class="game" id="paneHajar">
+          <div class="game-top">
+            <p class="game-help">Sapu bug dengan gerakan cepat (mouse atau jari). Kaleng cat kuning bonus, server PROD jangan disentuh. Di 12 detik terakhir hujan makin deras dan bos bug datang.</p>
+            <div class="hud-game"><div><b id="hScore">0</b>skor</div><div><b id="hCombo">x1</b>combo</div><div><b id="hTime">30</b>detik</div><div><b id="hBest">0</b>rekor</div></div>
+            <button class="btn" type="button" id="hStart">Mulai</button>
+          </div>
+          <div class="arena" id="hajarArena">
+            <canvas id="hajar"></canvas>
+            <div class="game-overlay" id="hOverlay">
+              <div>
+                <p class="slug">ronde 1, tembok belakang</p>
+                <h3 id="hTitle">Siap menghajar bug?</h3>
+                <p id="hMsg">30 detik. Setiap bug yang kena memberi poin, pukulan beruntun melipatgandakannya.</p>
+                <button class="btn btn--solid" type="button" id="hStart2">Mulai ronde</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="game" id="paneLorong" hidden>
+          <div class="game-top">
+            <p class="game-help">Kumpulkan semua baut di lorong tanpa ketangkap bug. Kaleng cat bikin bug lemah dan bisa kamu hajar. Panah atau WASD, swipe, atau tombol arah. Jeda: P atau Esc.</p>
+            <div class="hud-game"><div><b id="lScore">0</b>skor</div><div><b id="lLives">3</b>nyawa</div><div><b id="lLevel">1</b>level</div><div><b id="lBest">0</b>rekor</div></div>
+            <button class="btn" type="button" id="lStart">Mulai</button>
+          </div>
+          <div class="maze" id="lorongWrap">
+            <canvas id="lorong" tabindex="0" aria-label="Lorong Sekolah. Gunakan tombol panah untuk bergerak."></canvas>
+            <div class="game-overlay" id="lOverlay">
+              <div>
+                <p class="slug">ronde 2, lorong sekolah</p>
+                <h3 id="lTitle">Masuk ke lorong?</h3>
+                <p id="lMsg">Baut +1, kaleng cat +5, bug yang lemah +20 sampai +160. Kamu punya 3 nyawa.</p>
+                <button class="btn btn--solid" type="button" id="lStart2">Masuk lorong</button>
+              </div>
+            </div>
+          </div>
+          <div class="dpad" aria-label="Tombol arah">
+            <button class="btn" type="button" data-d="up" aria-label="Atas">atas</button>
+            <button class="btn" type="button" data-d="left" aria-label="Kiri">kiri</button>
+            <button class="btn" type="button" data-d="down" aria-label="Bawah">bawah</button>
+            <button class="btn" type="button" data-d="right" aria-label="Kanan">kanan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" id="cara-kerja" data-shot="stairs">
+      <div class="panel panel--wide">
+        <p class="slug"><span>07</span>EXT. TANGGA KE ATAP, SORE</p>
+        <h2>Lima anak tangga, nggak boleh loncat</h2>
+        <div class="steps" id="steps" role="tablist" aria-label="Langkah kerja"></div>
+        <div class="step-detail" id="stepDetail"></div>
+      </div>
+    </section>
+
+    <section class="scene" id="testing" data-shot="window" data-side="right">
+      <div class="panel">
+        <p class="slug"><span>08</span>INT. KELAS 3-B, JENDELA, SORE</p>
+        <h2>Tiap aturan diuji dua sisi</h2>
+        <p class="lede">Yang harus berhasil, dan yang harus ditolak.</p>
+        <ol class="tests" id="testList"></ol>
+        <div class="test-result">
+          <p class="test-score" id="testScore">0/7</p>
+          <div class="meter"><i id="testMeter"></i></div>
+          <p class="stamp" id="stamp">LULUS SEMUA</p>
+        </div>
+        <button class="btn btn--solid" type="button" id="runBtn">Jalankan pytest</button>
+      </div>
+    </section>
+
+    <section class="scene" id="commit" data-shot="tank">
+      <div class="panel">
+        <p class="slug"><span>09</span>EXT. ATAP, TANDON AIR, SORE</p>
+        <h2>Pesan commit yang rapi</h2>
+        <p class="lede">Type tanpa scope, deskripsi bahasa Indonesia huruf kecil. Coba ketik sendiri, aturannya dicek langsung.</p>
+        <div class="row-actions" id="types" role="group" aria-label="Type commit"></div>
+        <label class="field"><span>deskripsi</span><input type="text" id="desc" value="tambah validasi duplikasi url" maxlength="72" autocomplete="off"></label>
+        <ul class="rules" id="rules"></ul>
+        <pre class="code" id="preview"></pre>
+        <button class="btn" type="button" id="copyBtn">Salin perintah</button>
+      </div>
+    </section>
+
+    <section class="scene" id="stack" data-shot="endwall" data-side="right">
+      <div class="panel panel--wide">
+        <p class="slug"><span>10</span>EXT. DINDING TIMUR, SORE</p>
+        <h2>Isi tas setiap hari</h2>
+        <p class="lede">21 alat, dikelompokkan per fungsi.</p>
+        <div class="row-actions" id="stackFilter" role="group" aria-label="Filter kategori"></div>
+        <div class="stack" id="stackGroups"></div>
+      </div>
+    </section>
+
+    <footer class="scene scene--end" id="kontak" data-shot="outro">
+      <div class="credits">
+        <p class="slug">selesai</p>
+        <dl>
+          <div><dt>Ditulis dan dibangun oleh</dt><dd>Mochammad Bisma Prasetya</dd></div>
+          <div><dt>Email</dt><dd><code id="mailText">moch.bismap@gmail.com</code> <button class="btn btn--text" id="mailBtn" type="button">Salin email</button></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/Masbismaa" target="_blank" rel="noopener">github.com/Masbismaa</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/bisma.prasetya_" target="_blank" rel="noopener">instagram.com/bisma.prasetya_</a></dd></div>
+          <div><dt>Lokasi</dt><dd>Sekolah fiktif, dibangun dengan three.js</dd></div>
+        </dl>
+        <p class="credits-last">Test dulu, baru push.</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

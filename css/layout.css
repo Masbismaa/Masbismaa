@@ -1,0 +1,81 @@
+/* The frame around the film: stage, letterbox, HUD, opening titles, scenes. */
+#stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+#fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60; }
+.scrim { position: fixed; inset: 0; z-index: 1; pointer-events: none; transition: background .9s var(--ease); background: linear-gradient(90deg, rgba(6, 7, 6, .88) 0%, rgba(6, 7, 6, .6) 40%, rgba(6, 7, 6, 0) 72%); }
+body[data-side="right"] .scrim { background: linear-gradient(270deg, rgba(6, 7, 6, .88) 0%, rgba(6, 7, 6, .6) 40%, rgba(6, 7, 6, 0) 72%); }
+.no-webgl { background: #1b1d1b url(../assets/still.jpg) center / cover fixed; }
+.no-webgl #stage { display: none; }
+
+/* letterbox bars, taller during the opening */
+.bars i { position: fixed; left: 0; right: 0; height: var(--bar); background: #000; z-index: 50; transition: height 1.2s var(--ease); pointer-events: none; }
+.bars i:first-child { top: 0; height: calc(max(var(--bar), 44px) + env(safe-area-inset-top, 0px)); } .bars i:last-child { bottom: 0; height: calc(var(--bar) + env(safe-area-inset-bottom, 0px)); }
+.is-loading .bars i, .is-intro .bars i, .is-loading .bars i:first-child, .is-intro .bars i:first-child { height: 12vh; }
+
+/* loader */
+.loader { position: fixed; inset: 0; z-index: 80; display: grid; place-content: center; justify-items: center; gap: 14px; background: #000; transition: opacity .8s; font: 400 11.5px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.loader-track { width: min(260px, 60vw); height: 1px; background: var(--faint); }
+.loader-track i { display: block; height: 100%; background: var(--text); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+.loader-note { color: #5f625c; }
+body:not(.is-loading) .loader { opacity: 0; pointer-events: none; }
+
+/* opening credit over the aerial shot */
+.credit { position: fixed; inset: 0; z-index: 40; display: grid; place-content: center; text-align: center; gap: 12px; pointer-events: none; opacity: 0; transition: opacity 1.2s; }
+.credit.on { opacity: 1; }
+.credit-small { font: 400 12px/1 var(--mono); letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
+.credit-big { font: 500 clamp(22px, 3.4vw, 40px)/1.1 var(--display); letter-spacing: .32em; text-transform: uppercase; }
+
+/* freeze-frame name card after the crash zoom */
+.namecard { position: fixed; left: var(--gutter); bottom: calc(var(--bar) + 12vh); z-index: 40; pointer-events: none; opacity: 0; }
+.namecard.on { opacity: 1; animation: slam .35s cubic-bezier(.2, 1.4, .4, 1) both; }
+.namecard::before { content: ""; position: fixed; inset: 0; background: #fff; opacity: 0; }
+.namecard.on::before { animation: flashFrame .28s linear; }
+.namecard-jp { font: 700 clamp(15px, 1.8vw, 22px)/1 var(--jp); letter-spacing: .3em; color: var(--amber); }
+.namecard-name { font: 700 clamp(96px, 19vw, 280px)/.82 var(--display); text-transform: uppercase; letter-spacing: -.02em; margin: 10px 0 8px -.04em; text-shadow: 0 6px 40px rgba(0, 0, 0, .5); }
+.namecard-role { font: 500 13px/1 var(--mono); letter-spacing: .24em; text-transform: uppercase; }
+@keyframes slam { from { transform: scale(1.18); } to { transform: none; } }
+@keyframes flashFrame { 0% { opacity: .75; } 100% { opacity: 0; } }
+
+/* HUD sits inside the top letterbox bar */
+.hud { position: fixed; top: 0; left: 0; right: 0; z-index: 55; height: calc(max(var(--bar), 44px) + env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px); display: flex; align-items: center; gap: 22px; padding-inline: var(--gutter); font: 400 11.5px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; transition: opacity .8s; }
+.is-loading .hud, .is-intro .hud { opacity: 0; }
+.hud-mark { font: 700 18px/1 var(--display); letter-spacing: .12em; text-decoration: none; }
+.hud-rec { display: inline-flex; align-items: center; gap: 8px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.hud-rec i { width: 7px; height: 7px; border-radius: 50%; background: var(--red); animation: blink 1.2s steps(1) infinite; }
+.hud-nav { margin-left: auto; display: flex; gap: 22px; }
+.hud-nav a { text-decoration: none; color: var(--dim); }
+.hud-nav a.on, .hud-nav a:hover { color: var(--text); }
+.hud-sound { font: inherit; letter-spacing: inherit; text-transform: inherit; background: none; border: 0; color: var(--dim); cursor: pointer; padding: 8px 0; }
+.hud-sound[aria-pressed="true"] { color: var(--amber); }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* subtitles */
+.subtitle { position: fixed; left: 50%; bottom: calc(var(--bar) + 26px); transform: translateX(-50%); z-index: 45; width: max-content; max-width: 88vw; text-align: center; font: 500 clamp(16px, 1.6vw, 21px)/1.35 var(--body); color: var(--sub); text-shadow: 0 1px 2px #000, 0 0 12px rgba(0, 0, 0, .8); opacity: 0; transition: opacity .35s; pointer-events: none; }
+.subtitle.on { opacity: 1; }
+
+/* scenes */
+main { position: relative; z-index: 2; }
+.is-loading main, .is-intro main { visibility: hidden; }
+.scene { min-height: 100vh; min-height: 100svh; padding: calc(var(--bar) + 14vh) var(--gutter) calc(var(--bar) + 12vh); display: flex; align-items: center; }
+.scene > * { min-width: 0; }
+.panel { width: 100%; max-width: 580px; display: grid; gap: 22px; }
+.scene[data-side="right"] .panel { margin-left: auto; }
+.panel > .btn { justify-self: start; }
+.panel--wide { max-width: 1000px; }
+.panel--full { max-width: 1180px; margin: 0 auto; }
+.panel--wide, .panel--full { background: var(--panel); padding: clamp(22px, 3vw, 40px); }
+/* entering a scene is a hard cut: the heading flickers in like a splice, from a visible resting state */
+.scene.cut h2, .scene.cut h1 { animation: splice .42s steps(1); }
+@keyframes splice { 0% { opacity: 1; } 10% { opacity: .15; } 22% { opacity: 1; } 34% { opacity: .4; } 46% { opacity: 1; } }
+
+@media (max-width: 760px) {
+  :root { --bar: 2.5vh; }
+  .is-loading .bars i, .is-intro .bars i, .is-loading .bars i:first-child, .is-intro .bars i:first-child { height: 9vh; }
+  .scrim, body[data-side="right"] .scrim { background: linear-gradient(180deg, rgba(6, 7, 6, .45) 0%, rgba(6, 7, 6, .72) 45%, rgba(6, 7, 6, .82) 100%); }
+  .hud { gap: 14px; }
+  .hud-nav { display: none; }
+  .hud-sound { margin-left: auto; }
+  .scene { padding: calc(var(--bar) + 90px) 18px calc(var(--bar) + 70px); align-items: flex-end; }
+  .scene--games, .scene--end { align-items: center; }
+  .panel--wide, .panel--full { padding: 22px 16px; }
+  .namecard { bottom: calc(var(--bar) + 18vh); }
+}
