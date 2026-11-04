@@ -1,12 +1,14 @@
 <div align="center">
 
+<img src="./assets/readme/portrait.png" width="190" alt="Potret garis Mochammad Bisma Prasetya" />
+
 # Mochammad Bisma Prasetya
 
 **Software Developer** &nbsp;·&nbsp; Python, Flask, PostgreSQL, React &nbsp;·&nbsp; ICT Spindo
 
 <a href="https://masbismaa.github.io/Masbismaa/"><img src="https://img.shields.io/badge/Portfolio-0B0C0B?style=flat-square&logo=github&logoColor=white" alt="Portfolio" /></a>
 <a href="mailto:moch.bismap@gmail.com"><img src="https://img.shields.io/badge/Email-0B0C0B?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
-<a href="https://www.instagram.com/bisma.prasetya_"><img src="https://img.shields.io/badge/Instagram-0B0C0B?style=flat-square&logo=instagram&logoColor=white" alt="Instagram" /></a>
+<a href="https://www.instagram.com/moch.bismap_"><img src="https://img.shields.io/badge/Instagram-0B0C0B?style=flat-square&logo=instagram&logoColor=white" alt="Instagram" /></a>
 
 </div>
 
