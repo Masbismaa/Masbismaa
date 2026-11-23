@@ -2,7 +2,7 @@
 
 # Mochammad Bisma Prasetya
 
-**Software Developer** · ICT PT Steel Pipe Industry of Indonesia Tbk
+**Software Developer & Game Developer** · ICT PT Steel Pipe Industry of Indonesia Tbk
 
 <a href="https://masbismaa.github.io/Masbismaa/"><img src="https://img.shields.io/badge/Portfolio-0B0C0B?style=flat-square&logo=github&logoColor=white" alt="Portfolio" /></a>
 <a href="mailto:moch.bismap@gmail.com"><img src="https://img.shields.io/badge/Email-0B0C0B?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
@@ -12,7 +12,7 @@
 
 ---
 
-Saya membangun aplikasi web dari backend hingga antarmuka, dengan fokus pada kode yang mudah dirawat, teruji, dan aman.
+Saya membangun aplikasi web dari backend hingga antarmuka, serta mengembangkan gamemode server roleplay SA-MP / open.mp dengan Pawn, dengan fokus pada kode yang mudah dirawat, teruji, dan aman.
 Lulusan S1 Informatika, tersertifikasi BNSP, dan terbuka untuk kerja sama remote.
 
 ### Tech Stack
@@ -28,6 +28,8 @@ Lulusan S1 Informatika, tersertifikasi BNSP, dan terbuka untuk kerja sama remote
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![Pawn](https://img.shields.io/badge/Pawn-1F2937?style=flat-square&logoColor=white)
+![SA-MP / open.mp](https://img.shields.io/badge/SA--MP_%2F_open.mp-E67E22?style=flat-square&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
 ### Proyek Unggulan
